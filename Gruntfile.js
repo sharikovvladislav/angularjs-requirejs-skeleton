@@ -10,8 +10,8 @@ module.exports = function (grunt) {
           uglify2: {
             mangle: false
           },
-          baseUrl: "js",
-          mainConfigFile: "js/bootstrap.js",
+          baseUrl: "public/js",
+          mainConfigFile: "public/js/bootstrap.js",
           name: 'bootstrap',
           out: "build/js/bootstrap.js",
           optimize: 'uglify2'
@@ -25,20 +25,22 @@ module.exports = function (grunt) {
       },
       target: {
         files: {
-          'build/css/styles.min.css': ['css/styles.css', 'components/bootstrap/dist/css/bootstrap.min.css']
+          'build/css/styles.min.css': ['public/css/styles.css', 'public/components/bootstrap/dist/css/bootstrap.min.css']
         }
       }
     },
     processhtml: {
       dist: {
         files: {
-          'build/index.html': ['index2.html']
+          'build/index.html': ['public/index.html']
         }
       }
     },
     copy: {
       main: {
         files: [{
+          expand: true,
+          cwd: 'public',
           src: ['components/**'],
           dest: 'build/'
         }]
@@ -52,5 +54,6 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-requirejs');
 
   grunt.registerTask('default', ['requirejs', 'cssmin', 'processhtml', 'copy']);
+  grunt.registerTask('testCopy', ['copy']);
 
 };
