@@ -15,6 +15,8 @@ define([
     function ($routeProvider) {
       $routeProvider
         .when('/', { templateUrl: '/js/main/views/main.html', controller: 'main.myCtrl' })
+        .when('/view1', { templateUrl: '/js/main/views/view1.html', controller: 'main.myCtrl2' })
+        .when('/view2', { templateUrl: '/js/main/views/view2.html', controller: 'main.myCtrl3' })
 /*        .when('/view', { templateUrl: 'partials/dashboard', controller: 'dashboardController' })
         .when('/facebook', { templateUrl: 'partials/dashboard', controller: 'facebookController' })
         .when('/github', { templateUrl: 'partials/dashboard', controller: 'githubController' })

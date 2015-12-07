@@ -4,7 +4,9 @@ require.config({
     'ngResource': '../components/angular-resource/angular-resource',
     'ngRoute': '../components/angular-route/angular-route',
     'ngCookies': '../components/angular-cookies/angular-cookies',
-    'ngProgressLite': '../components/ngprogress-lite/ngprogress-lite'
+    'ngProgressLite': '../components/ngprogress-lite/ngprogress-lite',
+    'bootstrap': '../components/bootstrap/dist/js/bootstrap',
+    'jquery': '../components/jquery/dist/jquery.min'
   },
   shim: {
     ngResource: {
@@ -23,6 +25,9 @@ require.config({
       deps: ['angular'],
       exports: 'angular'
     },
+    bootstrap: {
+      deps: ['jquery']
+    },
     angular: {
       exports : 'angular'
     }
@@ -30,6 +35,6 @@ require.config({
   baseUrl: '/js'
 });
 
-require(['app', 'ngRoute'], function (app) {
+require(['app', 'ngRoute', 'bootstrap', 'jquery'], function (app) {
   app.init();
 });
