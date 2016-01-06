@@ -10,11 +10,11 @@ module.exports = function (grunt) {
           uglify2: {
             mangle: false
           },
-          baseUrl: "public/js",
-          mainConfigFile: "public/js/bootstrap.js",
-          name: 'bootstrap',
-          out: "build/js/bootstrap.js",
-          optimize: 'uglify2'
+          baseUrl: "./public",
+          mainConfigFile: "public/js/main.js",
+          name: 'js/main',
+          out: "build/js/main.min.js",
+          optimize: "uglify2"
         }
       }
     },
