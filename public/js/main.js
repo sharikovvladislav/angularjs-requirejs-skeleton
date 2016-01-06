@@ -32,9 +32,9 @@ require.config({
       exports : 'angular'
     }
   },
-  baseUrl: '/js'
+  baseUrl: './'
 });
 
-require(['app', 'ngRoute', 'bootstrap', 'jquery'], function (app) {
+require(['js/app', 'ngRoute', 'bootstrap', 'jquery'], function (app) {
   app.init();
 });

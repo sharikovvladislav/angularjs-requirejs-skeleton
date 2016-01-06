@@ -7,14 +7,14 @@ module.exports = function (grunt) {
     requirejs: {
       js: {
         options: {
-          uglify2: {
-            mangle: false
-          },
-          baseUrl: "public/js",
-          mainConfigFile: "public/js/bootstrap.js",
-          name: 'bootstrap',
-          out: "build/js/bootstrap.js",
-          optimize: 'uglify2'
+          // uglify2: {
+          //   mangle: false
+          // },
+          baseUrl: "./public",
+          mainConfigFile: "public/js/main.js",
+          name: 'js/main',
+          out: "build/js/main.min.js",
+          optimize: "none"
         }
       }
     },

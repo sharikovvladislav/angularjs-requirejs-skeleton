@@ -1,7 +1,7 @@
 define([
   'require', 'angular',
-  'main/services/services', 'main/directives/directives',
-  'main/controllers/controllers', 'main/services/services'
+  'js/main/services/services', 'js/main/directives/directives',
+  'js/main/controllers/controllers', 'js/main/services/services'
 ], function (require) {
   'use strict';
 

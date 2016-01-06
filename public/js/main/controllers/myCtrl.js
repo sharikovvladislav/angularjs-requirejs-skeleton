@@ -6,6 +6,7 @@ define(['angular'], function (angular) {
     }
   });
   module.controller('main.myCtrl3', function ($scope) {
+    
     $scope.debug = function () {
       console.log('debug', $scope.$id);
     }
