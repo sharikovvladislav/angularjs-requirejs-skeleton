@@ -5,36 +5,39 @@ require.config({
     'ngRoute': '../components/angular-route/angular-route',
     'ngCookies': '../components/angular-cookies/angular-cookies',
     'ngProgressLite': '../components/ngprogress-lite/ngprogress-lite',
-    'bootstrap': '../components/bootstrap/dist/js/bootstrap',
-    'jquery': '../components/jquery/dist/jquery.min'
+    'jquery': '../components/jquery/dist/jquery',
+    'bootstrap-lib': '../components/bootstrap/dist/js/bootstrap',
+    'app': './app'
   },
   shim: {
-    ngResource: {
-      deps: ['angular'],
-      exports: 'angular'
-    },
     ngRoute: {
-      deps: ['angular'],
-      exports: 'angular'
+      deps: ['angular']
+    },
+    ngResource: {
+      deps: ['angular']
     },
     ngCookies: {
-      deps: ['angular'],
-      exports: 'angular'
+      deps: ['angular']
     },
-    ngProgress: {
-      deps: ['angular'],
-      exports: 'angular'
+    ngProgressLite: {
+      deps: ['angular']
     },
-    bootstrap: {
+    app: {
+      deps: ['angular']
+    },
+    'bootstrap-lib': {
       deps: ['jquery']
     },
     angular: {
-      exports : 'angular'
+      exports: 'angular'
     }
   },
   baseUrl: '/js'
 });
 
-require(['app', 'ngRoute', 'bootstrap', 'jquery'], function (app) {
+// доп либы для ангулара
+define('ngAdditional', ['ngResource', 'ngRoute', 'ngCookies', 'ngProgressLite']);
+
+require(['app', 'ngAdditional', 'bootstrap-lib'], function (app) {
   app.init();
 });

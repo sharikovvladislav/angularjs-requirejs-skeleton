@@ -2,22 +2,18 @@
  * Created by Vlad on 05.12.2015.
  */
 module.exports = function (grunt) {
-
-  grunt.initConfig({
-    requirejs: {
-      js: {
-        options: {
-          uglify2: {
-            mangle: false
-          },
-          baseUrl: "public/js",
-          mainConfigFile: "public/js/bootstrap.js",
-          name: 'bootstrap',
-          out: "build/js/bootstrap.js",
-          optimize: 'uglify2'
+    grunt.initConfig({
+      requirejs: {
+        compile: {
+          options: {
+            baseUrl: "public/js",
+            mainConfigFile: "public/js/bootstrap.js",
+            name: 'bootstrap',
+            out: "build/js/bootstrap.js",
+            optimize: 'none'
+          }
         }
-      }
-    },
+      },
     cssmin: {
       options: {
         shorthandCompacting: false,
@@ -41,7 +37,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: 'public',
-          src: ['components/**'],
+          src: ['components/**', 'partials/**'],
           dest: 'build/'
         }]
       }
