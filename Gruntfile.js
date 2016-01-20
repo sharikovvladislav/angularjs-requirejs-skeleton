@@ -2,18 +2,21 @@
  * Created by Vlad on 05.12.2015.
  */
 module.exports = function (grunt) {
-    grunt.initConfig({
-      requirejs: {
-        compile: {
-          options: {
-            baseUrl: "public/js",
-            mainConfigFile: "public/js/bootstrap.js",
-            name: 'bootstrap',
-            out: "build/js/bootstrap.js",
-            optimize: 'none'
-          }
+  grunt.initConfig({
+    requirejs: {
+      compile: {
+        options: {
+          uglify2: {
+            mangle: true
+          },
+          baseUrl: "public/js",
+          mainConfigFile: "public/js/bootstrap.js",
+          name: 'bootstrap',
+          out: "build/js/bootstrap.js",
+          optimize: 'uglify2'
         }
-      },
+      }
+    },
     cssmin: {
       options: {
         shorthandCompacting: false,
@@ -49,7 +52,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
 
-  grunt.registerTask('default', ['requirejs', 'cssmin', 'processhtml', 'copy']);
+  grunt.registerTask('build', ['requirejs', 'cssmin', 'processhtml', 'copy']);
   grunt.registerTask('testCopy', ['copy']);
 
 };
