@@ -44,6 +44,26 @@ module.exports = function (grunt) {
           dest: 'build/'
         }]
       }
+    },
+    'http-server': {
+      build: {
+        root: 'build',
+        port: 8081,
+        showDir: true,
+        autoIndex: true,
+        ext: "html",
+        runInBackground: false,
+        openBrowser: true
+      },
+      dev: {
+        root: 'public',
+        port: 8080,
+        showDir: true,
+        autoIndex: true,
+        ext: "html",
+        runInBackground: false,
+        openBrowser: true
+      }
     }
   });
 
@@ -51,8 +71,11 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-processhtml');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
+  grunt.loadNpmTasks('grunt-http-server');
 
   grunt.registerTask('build', ['requirejs', 'cssmin', 'processhtml', 'copy']);
-  grunt.registerTask('testCopy', ['copy']);
+  grunt.registerTask('run', ['build', 'http-server:build']);
+  grunt.registerTask('http-dev', ['http-server:dev']);
+  grunt.registerTask('http-prod', ['http-server:build']);
 
 };
