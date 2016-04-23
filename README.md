@@ -1,6 +1,6 @@
 Clone
 =====
-```git clone https://github.com/sharikovvladislav/puzometr.git```
+```git clone https://github.com/sharikovvladislav/angularjs-requirejs-skeleton.git```
 
 Install dependencies
 =====
