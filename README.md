@@ -10,6 +10,3 @@ Start the application
 =====
 
 ```grunt run```
-
-and complete the installation.
-
